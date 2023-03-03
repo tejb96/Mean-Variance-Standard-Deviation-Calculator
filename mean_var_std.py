@@ -3,7 +3,7 @@ import numpy as np
 def calculate(list):
   arr = np.array(list)
   arr2 = arr.reshape(3, 3)
-  print(arr2)
+  
   max1= np.max(arr2, axis=0)
   max2= np.max(arr2, axis=1)
   max= np.max(arr2)
@@ -19,6 +19,12 @@ def calculate(list):
   std1=np.std(arr2,axis=0)
   std2=np.std(arr2,axis=1)
   std=np.std(arr2)
-  calculations = [max1,max2,max, min1, min2,min, mean1,mean2,mean,var1, var2, var, std1,std2,std]
+  sum1=np.sum(arr2,axis=0)
+  sum2=np.sum(arr2,axis=1)
+  sum=np.sum(arr2)
+  
+  calculations = {'mean':[mean1.tolist(),mean2.tolist(),mean.tolist()], 
+'variance':[var1.tolist(),var2.tolist(),var.tolist()], 'standard deviation':[std1.tolist(),std2.tolist(),std.tolist()],'max': [max1.tolist(),max2.tolist(),max.tolist()], 'min': [min1.tolist(),min2.tolist(),min.tolist()], 'sum': [sum1.tolist(),sum2.tolist(),sum.tolist()]} 
+  
   
   return calculations
